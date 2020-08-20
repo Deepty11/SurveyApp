@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">DoSurvey!</string>
+    <string name="title_activity_registration">ScrollingActivity</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="spinnerOptions">
+        <item>Very often</item>
+        <item>Often</item>
+        <item>Moderate</item>
+        <item>Not Much</item>
+        <item>Never Used</item>
+    </string-array>
+    <string name="useproduct">How often you use our product?</string>
+    <string name="contactNumber">Your Contact Number?</string>
+    <string name="howAreYou">How are you?</string>
+    <string name="youLive">Where do you live?</string>
+    <string name="likeourProject">Do you like our project</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="takesurvey">Take The Survey!</string>
+    <string name="viewSurvey">View Surveys</string>
+    <string name="verygood">Very Good</string>
+    <string name="good">Good</string>
+    <string name="Natural">Natural</string>
+    <string name="bad">Bad</string>
+    <string name="contact">Your Contact Number?</string>
+    <string name="verybad">Very Bad</string>
+    <string name="submit">Submit</string>
+    <string name="member">Already a member?</string>
+    <string name="signin">Sign in</string>
+    <string name="signup">Sign up</string>
+    <string name="login">Login</string>
+    <string name="Signin">Signin</string>
+    <string name="logout">Logout</string>
+    <string name="done">All Done!</string>
+
+</resources>

@@ -1,0 +1,29 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#D22F66</item>
+        <item name="colorPrimaryDark">@color/colorMagenta</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorNatural</item>
+        <item name="colorControlHighlight">@color/colorRed</item>
+        <item name="colorControlNormal">@color/colorMagenta</item>
+    </style>
+
+<!--    <style name="CustomProgressBarHorizontal" parent="android:Widget.ProgressBar.Horizontal">-->
+<!--        <item name="android:progressDrawable">@drawable/custom_progress_bar_horizontal</item>-->
+<!--        <item name="android:minHeight">10dip</item>-->
+<!--        <item name="android:maxHeight">20dip</item>-->
+<!--    </style>-->
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>
