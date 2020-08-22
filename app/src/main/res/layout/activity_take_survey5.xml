@@ -7,17 +7,7 @@
     android:orientation="vertical"
     android:background="@color/colorBg"
     tools:context=".TakeSurvey5Activity">
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#F4C538"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-    </com.google.android.material.appbar.AppBarLayout>
+    <include layout="@layout/root_layout"/>
     <ProgressBar
         android:id="@+id/pBar"
         style="?android:attr/progressBarStyleHorizontal"

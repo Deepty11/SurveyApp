@@ -5,7 +5,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.LabeledIntent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,6 +33,11 @@ public class ViewSurveyActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private SharedPreferences sharedPreferences;
+    public static final String fileName="login";
+    public static final String Username="Username";
+    public static final String Email="Email";
+    public static final String Password="password";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +46,7 @@ public class ViewSurveyActivity extends AppCompatActivity {
 
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        sharedPreferences=getSharedPreferences(fileName, Context.MODE_PRIVATE);
         //linearLayout=(LinearLayout)findViewById(R.id.linearLayout);
         sd=new SurveyDatabaseHelper(this);
         resultList=new ArrayList<SurveyQuestions>();
@@ -55,21 +63,7 @@ public class ViewSurveyActivity extends AppCompatActivity {
         //setting the title
         toolbar.setTitle("DoSurvey!");
         toolbar.setTitleTextColor(Color.WHITE);
-//        if(resultList==null){
-//            Toast.makeText(this, "No records found", Toast.LENGTH_SHORT).show();
-//        }else{
-//            for(SurveyQuestions sq1:resultList){
-//                TextView textView= new TextView(this);
-//                textView.setText(sq1.getTimestamp()+"/n"
-//                                +sq1.getQuestion1()+"/n"
-//                               +sq1.getQuestion2()+"/n"
-//                               +sq1.getQuestion3()+"/n"
-//                                +sq1.getQuestion4()+"/n"
-//                                +sq1.getQuestion5()+"/n");
-//                linearLayout.addView(textView);
-//
-//            }
-//        }
+
    }
 
     @Override
@@ -88,6 +82,11 @@ public class ViewSurveyActivity extends AppCompatActivity {
                 break;
 
             case R.id.menuLogout:
+                sharedPreferences=getSharedPreferences(fileName, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor= sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+                finish();
                 Toast.makeText(this, "You clicked logout", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 break;

@@ -19,6 +19,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="takesurvey">Take The Survey!</string>
+    <string name="takesurveyagain">Take The Survey again!</string>
     <string name="viewSurvey">View Surveys</string>
     <string name="verygood">Very Good</string>
     <string name="good">Good</string>
@@ -34,5 +35,6 @@
     <string name="Signin">Signin</string>
     <string name="logout">Logout</string>
     <string name="done">All Done!</string>
+
 
 </resources>

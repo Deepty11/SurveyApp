@@ -32,10 +32,25 @@
        android:textColor="@color/colorLightViolate"
        />
     <Button
-        android:id="@+id/viewSurvey"
+        android:id="@+id/takeSurvey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50pt"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/takesurveyagain"
+        android:textSize="20dp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorOffWhite"
+        android:background="@drawable/take_survey_again"
+        />
+    <Button
+        android:id="@+id/viewSurvey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10pt"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center"

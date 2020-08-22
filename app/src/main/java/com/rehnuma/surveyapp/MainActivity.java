@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -36,11 +38,25 @@ public class MainActivity extends AppCompatActivity {
     private Databasehelper databasehelper;
     private SurveyDatabaseHelper sd;
     private Toolbar toolbar;
+    private SharedPreferences sharedPreferences;
+
+    public static final String fileName="login";
+    public static final String Username="Username";
+    public static final String Email="Email";
+    public static final String Password="password";
+    private String res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sharedPreferences=getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        if(sharedPreferences.contains(Username)){
+            Intent intent =new Intent(getApplicationContext(),ChooseActivity.class);
+            intent.putExtra("name",Username);
+            startActivity(intent);
+        }
 
         emailText=(EditText)findViewById(R.id.email);
         passwordText=(EditText)findViewById(R.id.password);
@@ -60,11 +76,16 @@ public class MainActivity extends AppCompatActivity {
                 if(email.equals("")|| password.equals("")){
                     Toast.makeText(MainActivity.this, "Please fill the fileds...", Toast.LENGTH_SHORT).show();
                 }else{
-                    String res;
+
                     progressDialog.setMessage("Loading...");
                     progressDialog.show();
                     res=databasehelper.checkUser(email,password);
                     if(!res.equals("")){
+                        SharedPreferences.Editor editor=sharedPreferences.edit();
+                        editor.putString(Username,res);
+                        editor.putString(Email,email);
+                        editor.putString(Password,password);
+                        editor.commit();
                         progressDialog.hide();
                         Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(getApplicationContext(),ChooseActivity.class);
@@ -74,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
                     }else {
                         progressDialog.hide();
                         Toast.makeText(MainActivity.this, "Login error", Toast.LENGTH_SHORT).show();
+                        emailText.setText("");
+                        passwordText.setText("");
 
                     }
                 }

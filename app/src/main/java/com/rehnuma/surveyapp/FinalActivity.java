@@ -3,7 +3,9 @@ package com.rehnuma.surveyapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +19,11 @@ public class FinalActivity extends AppCompatActivity {
 
     private Button viewSurvey;
     private Toolbar toolbar;
+    private SharedPreferences sharedPreferences;
+    public static final String fileName="login";
+    public static final String Username="Username";
+    public static final String Email="Email";
+    public static final String Password="password";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +32,8 @@ public class FinalActivity extends AppCompatActivity {
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
-
-        //setting the title
         toolbar.setTitle("DoSurvey!");
+        sharedPreferences=getSharedPreferences(fileName, Context.MODE_PRIVATE);
         viewSurvey=(Button)findViewById(R.id.viewSurvey);
         viewSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +60,11 @@ public class FinalActivity extends AppCompatActivity {
                 break;
 
             case R.id.menuLogout:
+                sharedPreferences=getSharedPreferences(fileName, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor= sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+                finish();
                 Toast.makeText(this, "You clicked logout", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 break;
